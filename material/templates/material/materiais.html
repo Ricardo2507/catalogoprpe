@@ -1,0 +1,96 @@
+{% extends 'material/base.html' %}
+{% block titulo %}Materiais{% endblock %}
+
+{% block conteudo %}
+
+
+<legend>Material</legend>
+
+<div class="row">
+   <!--  <div class="col-md-2">
+        <a href="cadastro-material.html"><button type="button" class="btn btn-primary glyphicon glyphicon-plus-sign">
+                Novo</button></a>
+    </div> -->
+
+    <!-- <div class="row"> -->
+        <div class="col-md-4">
+            <!-- <div class="input-group"> -->
+            <form action="." method="GET" class="form-inline">
+
+                <!-- <span class="input-group-btn"> -->
+           
+
+                <!-- </span> -->
+
+                <input type="text" id="search" name="search" class="form-control" placeholder="Procurando por...">
+                <button class="btn btn-primary" type="submit">Pesquisar</button>
+
+            </form>
+
+            <!-- </div>/input-group -->
+        </div>
+    <!-- </div> -->
+</div>
+
+<div class="row">
+       
+    <div class="col-md-12">
+        
+        <br>
+        <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Materiais</div>  
+            {% if materiais_count > 0 %}
+           
+                <!-- Table -->
+                <table class="table">
+                    <tr>
+                        <th>Material</th>
+                        <th>Código</th>
+                        <th>Descrição</th>
+                        <th>Pedir por</th>
+               
+                    </tr>
+                
+                        {%for material in materiais %}
+                            {% include 'material/_materiais.html' %}
+                       
+                        {% endfor %}
+
+                    </table>
+            
+            {%  else %}
+                
+                    {%  if conta_slug == None %}
+                          <!-- Table -->
+                            <table class="table">
+                                <tr>
+                                    <th>Material</th>
+                                    <th>Código</th>
+                                    <th>Descrição</th>
+                                    <th>Pedir por</th>
+                        
+                                </tr>
+                    
+                            {%for material in materiais %}
+                                {% include 'material/_materiais.html' %}
+                        
+                            {% endfor %}
+
+                            </table>
+                    {%  else %}  
+                           <h3>Não existem produtos cadastrados para  --> {{ conta_slug  }}  </h3>
+                    {% endif %}
+        
+            {% endif %}
+        </div>
+        <!-- <nav aria-label="Page navigation example"> -->
+        <div id="content">
+        
+               {% include 'material/pagination.html' %}
+         
+        </div>
+    </div>
+</div>
+
+{% endblock %}

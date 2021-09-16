@@ -1,0 +1,51 @@
+{% extends 'material/base.html' %}
+
+{% block titulo %}Detalhe{% endblock %}
+{% block conteudo %}
+<div class="panel panel-primary">
+    <div class="panel-heading">Detalhes material</div>
+    <div class="row">
+        {% csrf_token %}
+        <div class="form-group col-md-4" align="center">
+           
+            <div class="card" style="width: 18rem; margin: 10px">
+            {% if materiais.image_url %}  
+             <div class="card" style="width: 18rem;">  
+               <img alt="image" style="width: 180px; height: 180px;" src="{{ materiais.image_url.url }}">
+            </div>
+            {% else %}   
+                {{  ' '  }}
+            {% endif%}
+        </div>  
+        </div> 
+        
+        <div class="form-group col-md-2">
+            <label for="campo1"> Código</label>
+            <input  style="text-align:center" type="text" class="form-control" id="campo1" value="{{materiais.codigo}}" disabled>
+        </div>
+
+        <div class="form-group col-md-8">
+            <label for="campo2">Descrição</label>
+            <input type="text" id="campo2" class="form-control" value="{{materiais.desc_material}}" disabled>
+        </div>
+
+        <div class="form-group col-md-2">
+            <label for="campo3">Pedir por</label>
+            <input type="text" class="form-control" id="campo3"
+                value="{{materiais.unidade}}" disabled>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="campo4">Conta</label>
+            <input type="text" class="form-control" id="campo4"
+                value="{{materiais.conta.conta}} "{{materiais.conta.descricao}}" disabled>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="campo4">Descricao</label>
+            <input type="text" class="form-control" id="campo4"
+                value="{{materiais.conta.descricao}}" disabled>
+        </div>
+       
+    </div>
+</div>
+</div>
+{% endblock %}

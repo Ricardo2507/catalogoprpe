@@ -1,0 +1,24 @@
+<nav aria-label="Page navigation example">
+    <div class="row text-center">
+
+        <ul class="pagination">
+            <!-- <li class="page-item"><a class="page-link" href="#">Anterior</a></li> -->
+            {% for pagina in materiais.paginator.page_range %}
+            {% if materiais.number == pagina %}
+            <li class="page-item active">
+                <a class="page-link" href="?p={{ pagina }}&search={{ request.GET.search }}">
+                    {{ pagina }}
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?p={{ pagina }}&search={{ request.GET.search }}">
+                    {{ pagina }}
+                </a>
+            </li>
+            {% endif %}
+            {% endfor %}
+
+        </ul>
+    </div>
+</nav>

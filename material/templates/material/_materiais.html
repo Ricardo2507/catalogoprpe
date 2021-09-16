@@ -1,0 +1,19 @@
+<tr>
+                            
+    <td class="thumbnail imagem"><a href="{% url 'detalhes' material.id  %}">
+        <img src="{{material.image_url.url}}" alt="material"
+        style="min-height: 40px; max-height: 40px; border-radius: 50px;"></a></td>
+    <td style="text-align: justify; vertical-align: middle;">{{material.codigo}}</td>
+    <td style="text-align: justify; vertical-align: middle;">{{material.desc_material}}</td>
+    <td style="text-align: justify; vertical-align: middle;">{{material.unidade}}</td>
+
+    <!-- <td>
+        {% if material.image_url %}
+        <img alt="image" style="width: 60px; height: 60;" src="{{ material.image_url }}">
+        {% else %}   
+            {{  ' '  }}
+        {% endif%}
+    </td> -->
+<!--      <td><a href="" class="glyphicon glyphicon-edit"></a></td> -->
+    <td style="text-align: justify; vertical-align: middle;"><a href="{% url 'detalhes' material.id  %}" class="glyphicon glyphicon-list-alt"></a></td>
+</tr>

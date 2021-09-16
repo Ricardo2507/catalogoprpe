@@ -1,0 +1,71 @@
+{% extends 'material/base.html' %}
+{% block titulo %}Contas{% endblock %}
+
+{% block conteudo %}
+
+
+<legend>Conta</legend>
+
+<div class="row">
+    <div class="col-md-2">
+        <a href="cadastro-conta.html"><button type="button" class="btn btn-primary glyphicon glyphicon-plus-sign">
+                Nova</button></a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <!-- <div class="input-group"> -->
+            <form action="." method="GET" class="form-inline">
+
+                <!-- <span class="input-group-btn"> -->
+                <button class="btn btn-default" type="submit">Pesquisar</button>
+
+                <!-- </span> -->
+
+                <input type="text" id="search" name="search" class="form-control" placeholder="Procurando por...">
+
+
+            </form>
+
+            <!-- </div>/input-group -->
+        </div>
+    </div>
+</div>
+
+<div class="row">
+       
+    <div class="col-md-12">
+        
+        <br>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Contas</div>       
+            <!-- Table -->
+            <table class="table">
+                <tr>
+                    <th>Conta</th>
+                    <th>Descrição</th>
+              
+                </tr>
+                {%for conta in contas %}
+                <tr>
+                    <td>{{conta.conta}}</td>
+                    <td>{{conta.descricao}}</td>
+                    <td><a href="" class="glyphicon glyphicon-edit"></a></td>
+                    <td><a href="" class="glyphicon glyphicon-list-alt"></a></td>
+                </tr>
+                {% endfor %}
+
+            </table>
+            
+          
+        </div>
+        <!-- <nav aria-label="Page navigation example"> -->
+        <div id="content">
+        
+               {% include 'material/pagination.html' %}
+         
+        </div>
+    </div>
+</div>
+
+{% endblock %}
